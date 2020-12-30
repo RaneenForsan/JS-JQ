@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Task5</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <meta name="description" content="An interactive getting started guide for Brackets.">
+
+        
+    <style>
+        
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        body{
+            background: #333;
+        }
+        .main{
+            background: #ccc;
+            text-align: center;
+            width:400px;
+            margin:80px auto;
+            padding:30px;
+        }
+        form{
+            padding:0 5px;
+            margin-bottom: 15px;
+        }
+        .textview{
+            width:100%;
+            height:40px;
+            padding:0 10px;
+            pointer-events: none;
+        }
+        .clearfix:before,.clearfix:after{
+            content: '';
+            display: table;
+            clear:both;
+            width:100%;
+        }
+        .col-3{
+            width:25%;
+            padding:5px;
+            float:left;
+        }
+        .col-6{
+            width:50%;
+            padding:5px;
+            float:left;
+        }
+        .button{
+            width:100%;
+            height:40px;
+            outline: none;
+        }
+        .button.top-button{
+            background: #6d4b7e;
+            border-color:#d6d6d6;
+            color:#fff;
+        }
+        .button.equal{
+            background: #ad3535;
+            color:#fff;
+            font-size:20px;
+        }
+        .button.operator{
+            background: #20b2aa;
+            border-color:#d6d6d6;
+            color:#fff;
+            font-size: 20px;
+
+        }
+    </style>
+    </head>
+    <body>
+   <div class="main">
+    <form name="form">
+    <input type="text" name="textview" class="textview">
+    </form>  
+<div class="clearfix">
+       <div class="col-3"><input type="button" class="button top-button" value="C" onclick="clean();"></div>
+       <div class="col-6"><input type="button" class="button top-button" value="Del" onclick=" back();"></div>
+       <div class="col-3"><input type="button" class="button top-button" value="&#247" onclick="insert('/')"></div>
+    </div>
+        
+       
+<div class="clearfix">
+       <div class="col-3"><input type="button" class="button" value="7" onclick="insert(7);"></div>
+       <div class="col-3"><input type="button" class="button" value="8" onclick="insert(8);"></div>
+       <div class="col-3"><input type="button" class="button" value="9" onclick="insert(9);"></div>
+       <div class="col-3"><input type="button" class="button operator" value="&#215" onclick="insert('*');"></div>
+    </div>
+       
+<div class="clearfix">
+       <div class="col-3"><input type="button" class="button" value="4" onclick="insert(4);"></div>
+       <div class="col-3"><input type="button" class="button" value="5" onclick="insert(5);"></div>
+       <div class="col-3"><input type="button" class="button" value="6" onclick="insert(6);"></div>
+       <div class="col-3"><input type="button" class="button operator" value="&#8722" onclick="insert('-')"></div>
+    </div>
+       
+    
+<div class="clearfix">
+       <div class="col-3"><input type="button" class="button" value="1" onclick="insert(1);"></div>
+       <div class="col-3"><input type="button" class="button" value="2" onclick="insert(2);"></div>
+       <div class="col-3"><input type="button" class="button" value="3" onclick="insert(3);"></div>
+       <div class="col-3"><input type="button" class="button operator" value="&#43;" onclick="insert('+')"></div>
+    </div>
+       
+       
+<div class="clearfix">
+       <div class="col-3"><input type="button" class="button" value="." onclick="insert('.');"></div>
+       <div class="col-3"><input type="button" class="button" value="0" onclick="insert(0);"></div>
+       <div class="col-6"><input type="button" class="button equal" value="&#61" onclick="equal();"></div>
+    </div>
+        </div>
+        
+        
+<script>
+function insert(num){
+    var myString=document.form.textview.value;
+    document.form.textview.value=myString+num;
+}
+    
+function equal(){
+    var sum=document.form.textview.value;
+    if (sum){
+        document.form.textview.value=eval(sum);
+    }
+   }
+ 
+function clean(){
+document.form.textview.value="";
+
+}
+    
+function back(){
+    var exp=document.form.textview.value;
+    document.form.textview.value=exp.substring(0,exp.length-1);
+}
+</script>
+    </body>
+    </html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Task3</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <meta name="description" content="An interactive getting started guide for Brackets.">
+        <link rel="stylesheet" href="main.css">
+    <style>
+        #select2,#select3{
+            display:none;
+        }
+        section{
+            background: #DDD;
+            margin:auto;
+            width:20%;
+            height:50px;
+            padding-left:150px;
+        }
+        #select1{
+            padding-top:20px;
+        }
+    </style>
+    </head>
+    <body>
+   <section id="select1">
+      Select Countery<select id="s1">
+       <option value="Eygpt">Eygpt</option>
+       <option value="Jordan" id="selectionchoise">Jordan</option>
+       <option value="USA">USA</option>
+        </select>
+    </section>
+        
+    <section id="select2">
+        Select State&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select>
+       <option value="Amman" id="city1">Amman</option>
+       <option value="Zarqa" id="city2">Zarqa</option>
+       <option value="Salt" id="city3">Salt</option>
+        </select>
+    </section>
+        
+       <section id="select3">
+       Select Zip Code&nbsp;&nbsp;&nbsp;<select>
+       <option value="12345hjklf" id="zipcode">JOR5hjklf</option>
+        </select>
+       </section>
+
+<script>
+$(document).ready(function(){
+  $("#select1").click(function(){
+      var val=document.getElementById("s1").value;
+      if(val=="Jordan"){
+      $("#select2").show();
+      $("#select3").show();
+    var val1=document.getElementById("city1").innerHTML="Amman"
+    var val1=document.getElementById("city2").innerHTML="Zarqa"
+    var val1=document.getElementById("city3").innerHTML="Salt"
+    var val1=document.getElementById("zipcode").innerHTML="JOR5hjklf"
+      }
+      else if(val=="USA"){
+    $("#select2").show();
+    $("#select3").show();
+    var val1=document.getElementById("city1").innerHTML="Chicago"
+    var val1=document.getElementById("city2").innerHTML="Philadelphia"
+    var val1=document.getElementById("city3").innerHTML="NewYork"
+    var val1=document.getElementById("zipcode").innerHTML="USA5hjklf"
+      }
+     
+    else if(val=="Eygpt"){
+    $("#select2").show();
+    $("#select3").show();
+    var val1=document.getElementById("city1").innerHTML="Cairo"
+    var val1=document.getElementById("city2").innerHTML="Alexandria"
+    var val1=document.getElementById("city3").innerHTML="Giza"
+    var val1=document.getElementById("zipcode").innerHTML="Eygpt5hjklf"
+      }
+  });
+});
+</script>
+        
+
+    </body>
+    </html>

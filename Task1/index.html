@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Task1</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <meta name="description" content="An interactive getting started guide for Brackets.">
+        <link rel="stylesheet" href="main.css">
+        <style>
+            #val{
+               width:100px; 
+                }
+        </style>
+    </head>
+    <body>
+    <p>Please select color to change background body</p>
+    <input type="color" id="val" onchange="changecolor();">
+        
+    <script>
+    function changecolor(){
+    var selectedColor=document.getElementById("val").value;
+    document.body.style.backgroundColor=selectedColor;
+    }
+   </script>
+    </body>
+    </html>

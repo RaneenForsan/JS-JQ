@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Task6</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <meta name="description" content="An interactive getting started guide for Brackets.">
+<style>
+    .error{
+        color:red;
+    }
+        
+</style>
+    </head>
+    <body>
+   <form action="/action_page.php" onSubmit = "return checkPassword(this)">
+    <label for="emil">Email</label>
+    <input type="email" id="email" name="email" autocomplete="off"><br><br> 
+     <label for="password">Password</label>
+    <input type="password" id="password1" name="password"><br><br>
+     <label for="password">Retype Password</label>
+    <input type="password" id="password2" name="password" ><br><br>
+    <label> Phone number </label> <input id="phonefield" type="text" value="" name="phone" onkeyup=" return validatephone(this.value); " /><br><br><br>
+    <input type="submit" value="Submit" id="submit" onclick="checkPassword();">
+   </form>  
+        
+   <!--For Required attribute-->
+    <script> 
+		  $(document).ready(function(){
+           	$("#submit").click(function(){
+			 $('input').attr('required', true); 
+			 });
+		  });
+    </script> 
+    
+    
+<!--Validation For Phone-->
+ <script type="text/javascript">
+
+  function validatephone(phone)
+  	{
+  		phone = phone.replace(/[^0-9]/g,'');
+  		$("#phonefield").val(phone);
+  		if( phone == '' || !phone.match(/^0[0-9]{9}$/) )
+  			{
+  				$("#phonefield").css({'background':'#FFEDEF' , 'border':'solid 1px red'});
+  				return false;
+  			}
+  		else
+  			{
+  				$("#phonefield").css({'background':'#99FF99' , 'border':'solid 1px #99FF99'});
+  			return true;	
+  			}
+  	}
+     
+    
+  </script>
+        
+
+<!--Validation for email-->   
+    <script>        
+ $(document).ready(function() { 
+ 
+    $('#submit').click(function() {  
+ 
+        $(".error").hide();
+        var hasError = false;
+        var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+ 
+        var emailaddressVal = $("#email").val();
+        if(emailaddressVal == '') {
+            $("#email").after('<span class="error">Please enter your email address.</span>');
+            hasError = true;
+        }
+ 
+        else if(!emailReg.test(emailaddressVal)) {
+            $("#email").after('<span class="error">Enter a valid email address.</span>');
+            hasError = true;
+        }
+ 
+        if(hasError == true) { return false; }
+ 
+    });
+});       
+
+    </script>
+        
+        
+    
+<script>    
+            // Function to check Whether both passwords 
+            // is same or not. 
+            function checkPassword(form) { 
+                var password1 = form.password1.value; 
+                var password2 = form.password2.value; 
+  
+                // If password not entered 
+                if (password1 == '') 
+                    alert ("Please enter Password"); 
+                      
+                // If confirm password not entered 
+                else if (password2 == '') 
+                    alert ("Please enter confirm password"); 
+                      
+                // If Not same return False.     
+                else if (password1 != password2) { 
+                    alert ("\nPassword did not match: Please try again...") 
+                    return false; 
+                } 
+  
+                // If same return True. 
+                else{ 
+                    return true; 
+                } 
+            } 
+        </script> 
+    </body>
+    </html>
